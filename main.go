@@ -61,7 +61,7 @@ func getImageList(url string) ([]string, error) {
 	}
 
 	list := []string{}
-	doc.Find(`div.ently_text > a[rel="lightboxs"]`).Each(func(_ int, el *goquery.Selection) {
+	doc.Find(`div.ently_text a[target="_blank"]`).Each(func(_ int, el *goquery.Selection) {
 		href, ok := el.Attr("href")
 		if !ok { // href does not exists, so ignore it
 			return
